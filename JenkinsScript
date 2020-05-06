@@ -1,0 +1,6 @@
+node{
+    Stage("create EC2 instance with terraform"){
+        sh 'terraform inti /terraform'
+        sh "scho 'yes' | sudo terraform apply /terraform
+    }
+}

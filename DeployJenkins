@@ -1,0 +1,5 @@
+node {
+    stage ("Deploy NGINX web app on EC2"){
+        sh 'cd /ansible; sudo ansible-playbook -i hosts deploy_nginx_docker_app.yml &
+    }
+}

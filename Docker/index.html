@@ -1,0 +1,12 @@
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+root@ip-172-31-47-92:/docker# cat index.html 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World!</title>
+    </head>
+    <body>
+        <p>Hello World!</p>
+    </body>
+</html>

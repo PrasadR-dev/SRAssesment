@@ -1,0 +1,12 @@
+hosts: nginx
+  gather_facts: no
+  user: root
+  tasks:
+    - name: copy docker files
+      copy:
+        src: /docker
+        dest: /root
+    - name: build docker-compose
+      shell: 'cd /root/docker ; docker-compose build'
+    - name: start nginx app
+      shell: 'cd /root/docker ; docker-compose up'

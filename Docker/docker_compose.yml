@@ -1,0 +1,29 @@
+version: "3" 
+services:
+    docker_nginx:
+      command: nginx -g 'daemon off';
+      container_name: docker_nginx
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+        - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+        - NGINX_VERSION=1.17.10
+        - NJS_VERSION=0.3.9
+        - PKG_RELEASE=1
+      hostname: f4deba97d992
+      image: docker-nginx
+      ipc: private
+      labels:
+        maintainer: 'NGINX Docker Maintainers <docker-maint@nginx.com>'
+      logging:
+        driver: json-file
+        options: {}
+      mac_address: 02:42:ac:11:00:02
+      networks:
+        - net_db_bridge_request
+      ports:
+        - 8181:80/tcp 
+networks:
+  net_db_bridge_request:
+    driver: bridge
